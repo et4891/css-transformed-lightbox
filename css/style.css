@@ -1,0 +1,60 @@
+p {
+	margin-top: 0;
+}
+
+img.thumbs {
+	width: 100px;
+}
+
+div.lightbox div.lightbox-container img {
+	width:90%;
+}
+
+/*style of the lightbox*/
+.lightbox-container {
+	position: fixed;
+	background-color: #fff;
+	width: 70%;
+	max-width: 400px;
+	left: 50%;
+	padding: 20px;
+	border-radius: 5px;
+	text-align: center;
+
+	-webkit-transform: translate(-50%, -1000%);
+	-ms-transform: translate(-50%, -1000%);
+	transform: translate(-50%, -1000%);
+
+	/*works like animation can use ease-in, linear*/
+	-webkit-transition: -webkit-transform 500ms ease-out;
+	-ms-transition: -ms-transform 500ms ease-out;
+	transition: transform 500ms ease-out;
+}
+
+/*background style of the whole back during lightbox*/
+.lightbox:before {
+	content: "";
+	position: fixed;
+	display: none;		/*using this so this content won't always show until needed*/
+	background: rgba(0,0,0,.4);
+	top:0;
+	left:0;
+	height: 100%;
+	width: 100%;
+}
+
+
+/*targets the element when clicked and changes the display to block*/
+.lightbox:target:before {
+	display: block;
+}
+
+/*targeting the .lightbox-container for the transition and the contents will show up*/
+.lightbox:target .lightbox-container {
+	top: 5%;
+	-webkit-transform: translate(-50%, 0);
+	-ms-transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+
+#lightbox-close {}
